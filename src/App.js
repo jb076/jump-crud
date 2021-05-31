@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { getUsers, deleteUser } from './services/dataService';
+
+
+function UserDelete({ user }) {
+  let removeUser =  () => {
+    console.log('woot');
+    // deleteUser(user.id);
+  }
+  return (
+    <button onClick={ removeUser }>Remove Me</button>
+  )
+}
+
+function UserDisplay ({ user }) {
+  console.log(user);
+  return (
+    <div> 
+      <span>{ user }</span>
+      <UserDelete user = { user } />
+    </div>
+  )
+}
+
+function UserEdit ({ user }) {}
+
 
 function App() {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    getUsers()
+      .then((result) => {
+        setUsers(result);
+      })
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { users.map(user => <UserDisplay user={ user } />) }
     </div>
   );
 }
