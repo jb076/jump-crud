@@ -1,45 +1,28 @@
-import { useEffect, useState } from 'react';
 import './App.css';
-import { getUsers, deleteUser } from './services/dataService';
+import UserView from './components/UserView';
 
-
-function UserDelete({ user }) {
-  let removeUser =  () => {
-    console.log('woot');
-    // deleteUser(user.id);
-  }
-  return (
-    <button onClick={ removeUser }>Remove Me</button>
-  )
-}
-
-function UserDisplay ({ user }) {
-  console.log(user);
-  return (
-    <div> 
-      <span>{ user }</span>
-      <UserDelete user = { user } />
-    </div>
-  )
-}
-
-function UserEdit ({ user }) {}
+// const baseUri = '';
+// async function deleteUser (userId) {
+//   const uri = `${baseUri}/${userId}`;
+//   // return axios.delete(uri);
+// } 
 
 
 function App() {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    getUsers()
-      .then((result) => {
-        setUsers(result);
-      })
-  });
-
   return (
     <div className="App">
-      { users.map(user => <UserDisplay user={ user } />) }
+      <header>Welcome to Jump Crud</header>
+      <UserView />
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
