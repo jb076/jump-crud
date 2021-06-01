@@ -10,15 +10,14 @@ function UserList({ users, displayFields, addUserHandler, deleteUserHandler }) {
     }
 
     return (
-      <div className="user-list">
-        <button class="new-user-button" onClick={ toggleEdit }>{ showEdit ? '-': '+' }</button>
-            
-        <div className="user-list-headers"> 
-            { displayFields.map(field => <div key={ field.value }>{ field.name }</div>) }
-            <div />
-        </div>
-        
-        { showEdit && 
+        <div className="user-list">
+            <button class="new-user-button" onClick={ toggleEdit }>{ showEdit ? '-': '+' }</button>
+                
+            <div className="user-list-headers"> 
+                { displayFields.map(field => <div key={ field.value }>{ field.name }</div>) }
+            </div>
+
+            { showEdit && 
                 <div className="new-user-edit">
                     <UserEdit 
                         displayFields={ displayFields } 

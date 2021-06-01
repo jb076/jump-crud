@@ -8,11 +8,8 @@ import '../css/UserView.css';
 function UserView() {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        getUsers()
-          .then((result) => {
-            setUsers(result);
-          })
-      }, []);
+        updateUserList();
+    }, []);
       
     async function addUserAndUpdate (userInfo) {
         await addUser(userInfo);
@@ -26,8 +23,7 @@ function UserView() {
 
     async function removeUser  (userInfo) {
         await deleteUser(userInfo);
-        const result = await getUsers();
-        setUsers(result);
+        updateUserList();
     }
 
     const displayFields = [

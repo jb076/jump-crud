@@ -1,8 +1,8 @@
 .main-area {
   position: relative;
   background-color: #626b73;
-  min-height: 900px;
-  width: 80vw;
+  min-height: 1000px;
+  width: 90vw;
   margin: 0 auto;
   color: white;
   padding-top: 4px;
@@ -25,34 +25,11 @@ button:hover {
   background-color: #3ff5b8;
 }
 
-.toolbar {
-  height: 5vh;
+input:focus {
+  border: 2px solid #2cc692 !important;
+  outline: none !important;
 }
 
-
-.user-entry {
-  display: flex;
-  justify-content: center;
-  padding: 11px;
-  background-color: #484349;
-  margin: .5vh 4px;
-  align-items: center;
-  border-radius: 8px;
-
-}
-
-.user-entry div {
-  width: 13vw;
-  white-space: pre-wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-/* 
-.new-user-edit {
-  position: absolute;
-  top: 0;
-  width: 100%;
-} */
 .user-list-headers {
   display: flex;
   justify-content: center;
@@ -65,23 +42,39 @@ button:hover {
   border-radius: 8px;
 }
 .user-list-headers div {
-  width: 13vw;
-}
-
-.user-entry button {
-  margin-right: 5px; 
+  width: 15%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre-wrap;
 }
 
 .new-user-button {
   height: 45px;
   width: 45px;
-  float: right;
-  margin: 5px 10px 0 0;
   font-size: 35px;
-  padding: 0 12px;
   position: absolute;
-  top: 6px;
-  right: 0px;
+  top: 11px;
+  right: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-entry {
+  display: flex;
+  justify-content: center;
+  padding: 11px;
+  background-color: #484349;
+  margin: 4px;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.user-entry div {
+  width: 15%;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .user-edit {
@@ -101,10 +94,9 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: bottom;
 }
 
-.user-edit form input {
+.user-edit input {
   display: block;
   padding: 10px;
   background-color: transparent;
@@ -115,12 +107,7 @@ button:hover {
   font-weight: 400;
 }
 
-input:focus {
-  border: 2px solid #2cc692 !important;
-  outline: none !important;
-}
-
-.user-edit form label{
+.user-edit label{
   display: block;
   text-align: left;
   font-size: 12px;
@@ -128,18 +115,18 @@ input:focus {
   margin-bottom: 4px;
 }
 
-.user-edit form button {
+.user-edit button {
   height: 40px;
   margin: auto 7px 0 0;
 }
 
-.user-edit form div {
-  min-width: 10vw;
+.user-edit div {
+  min-width: 15%;
 }
 
 .edit-button-group {
   display: flex;
-  align-items: bottom;
+  min-width: 20%
 }
 
 .edit-button-group button {
