@@ -1,14 +1,44 @@
 .main-area {
+  position: relative;
   background-color: #626b73;
-  height: 100%;
+  min-height: 900px;
+  width: 80vw;
+  margin: 0 auto;
+  color: white;
+  padding-top: 4px;
 }
+
+button {
+  font-weight: 600;
+  color: white;
+  background-color: #2cc692;
+  font-size: 13px;
+  vertical-align: middle;
+  box-shadow: none;
+  border: none;
+  padding: 8px; 
+  border-radius: 8px;
+
+}
+
+button:hover {
+  background-color: #3ff5b8;
+}
+
+.toolbar {
+  height: 5vh;
+}
+
 
 .user-entry {
   display: flex;
   justify-content: center;
-  padding: 5px;
-  background-color: white;
-  border-bottom: 1px dotted;
+  padding: 11px;
+  background-color: #484349;
+  margin: .5vh 4px;
+  align-items: center;
+  border-radius: 8px;
+
 }
 
 .user-entry div {
@@ -17,52 +47,109 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+/* 
+.new-user-edit {
+  position: absolute;
+  top: 0;
+  width: 100%;
+} */
 .user-list-headers {
   display: flex;
   justify-content: center;
+  background-color: #484349;
+  font-size: 24px;
+  font-weight:400;
+  height: 60px;
+  align-items: center;
+  margin: 0 4px;
+  border-radius: 8px;
 }
 .user-list-headers div {
-  width: 13vw
+  width: 13vw;
 }
+
 .user-entry button {
-  margin-right: 5px;
+  margin-right: 5px; 
+}
+
+.new-user-button {
+  height: 45px;
+  width: 45px;
+  float: right;
+  margin: 5px 10px 0 0;
+  font-size: 35px;
+  padding: 0 12px;
+  position: absolute;
+  top: 6px;
+  right: 0px;
 }
 
 .user-edit {
-  border: 2px solid red;
+  border: 2px solid #2cc692;;
   justify-content: center;
+  background-color: #484349;
+  padding: 5vh;
+  margin: 7px 4px;
+  border-radius: 8px;
+}
+
+.user-edit div {
+  margin-right: 10px;
 }
 
 .user-edit form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.user-edit div {
-  width: 13vw;
+  align-items: bottom;
 }
 
 .user-edit form input {
   display: block;
+  padding: 10px;
+  background-color: transparent;
+  border:2px solid white;
+  border-radius: 8px;
+  box-shadow: none;
+  color: white;
+  font-weight: 400;
+}
+
+input:focus {
+  border: 2px solid #2cc692 !important;
+  outline: none !important;
 }
 
 .user-edit form label{
   display: block;
   text-align: left;
+  font-size: 12px;
+  padding-left: 4px;
+  margin-bottom: 4px;
 }
 
 .user-edit form button {
-  height: 90%;
-  margin: auto;
+  height: 40px;
+  margin: auto 7px 0 0;
 }
 
 .user-edit form div {
   min-width: 10vw;
 }
 
-.user-list {
-
+.edit-button-group {
+  display: flex;
+  align-items: bottom;
 }
 
+.edit-button-group button {
+  margin-right: 5px;
+}
+
+.user-edit .errors {
+  text-align: left;
+}
+
+.error-list {
+  color: #e56e6f;
+}

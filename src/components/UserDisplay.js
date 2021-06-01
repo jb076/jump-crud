@@ -13,11 +13,9 @@ function UserDisplay ({ user, displayFields, addUserHandler, deleteUserHandler }
         { showEdit
             ? <UserEdit user={ user } displayFields={displayFields} addUserHandler={addUserHandler} hideHandler={ toggleShowEdit }/>
             : <div className="user-entry"> 
-                {displayFields.map(field=> <div>{user[field.value]}</div>)}
-                <div>
+                {displayFields.map(field=> <div key={field.value}>{user[field.value]}</div>)}
+                <div className="edit-button-group">
                     <button onClick= { () => {deleteUserHandler(user)} }>Delete User</button>
-                </div>
-                <div>
                     <button onClick={ toggleShowEdit }>Edit User</button>
                 </div>
             </div>
