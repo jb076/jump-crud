@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
-function UserEdit ({ user, addUserHandler, hideHandler }) {
+import '../css/UserView.css';
+
+function UserEdit ({ user, displayFields, addUserHandler, hideHandler }) {
     const [formUser, updateFormUser] = useState({});
     
     useEffect(() => {
@@ -14,27 +16,24 @@ function UserEdit ({ user, addUserHandler, hideHandler }) {
     }
 
     return (
-      <form>
-        <label>User Name:</label>
-        <input type="text" name="username" value = { formUser.username } onChange={ updateUser }/>
-  
-        <label>Last Name:</label>
-        <input type="text" name="firstname" value = { formUser.firstname } onChange={ updateUser }/>
-  
-        <label>First Name:</label>
-        <input type="text" name="lastname" value = { formUser.lastname } onChange={ updateUser }/>
-  
-        <label>Email:</label>
-        <input type="text" name="email" value = { formUser.email } onChange={ updateUser }/>
-  
-        <label>Display Name:</label>
-        <input type="text" name="displayname" value = { formUser.displayname } onChange={ updateUser }/>
-  
-        <label>Department:</label>
-        <input type="text" name="deparment" value = { formUser.deparment } onChange={ updateUser }/>
-        <button onClick={ (e) => {e.preventDefault(); addUserHandler(formUser); hideHandler();} }>Submit</button>
-        <button onClick={ (e) => {e.preventDefault(); hideHandler()} }>Cancel</button>
-      </form>
+        <div className="user-edit">
+            <form>
+                {displayFields.map((field)=>{
+                    return (
+                        <div>
+                            <label>{field.name}:</label>
+                            <input type="text" name={field.value} value={ formUser[field.value] } onChange={ updateUser }/>      
+                        </div>
+                    );
+                })}
+                <div>
+                    <button onClick={ (e) => {e.preventDefault(); addUserHandler(formUser); hideHandler();} }>Submit</button>
+                </div>
+                <div>
+                    <button onClick={ (e) => {e.preventDefault(); hideHandler()} }>Cancel</button>
+                </div>
+            </form>
+        </div>
     )
 }
 

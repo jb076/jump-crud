@@ -1,0 +1,68 @@
+.main-area {
+  background-color: #626b73;
+  height: 100%;
+}
+
+.user-entry {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: white;
+  border-bottom: 1px dotted;
+}
+
+.user-entry div {
+  width: 13vw;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-list-headers {
+  display: flex;
+  justify-content: center;
+}
+.user-list-headers div {
+  width: 13vw
+}
+.user-entry button {
+  margin-right: 5px;
+}
+
+.user-edit {
+  border: 2px solid red;
+  justify-content: center;
+}
+
+.user-edit form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-edit div {
+  width: 13vw;
+}
+
+.user-edit form input {
+  display: block;
+}
+
+.user-edit form label{
+  display: block;
+  text-align: left;
+}
+
+.user-edit form button {
+  height: 90%;
+  margin: auto;
+}
+
+.user-edit form div {
+  min-width: 10vw;
+}
+
+.user-list {
+
+}
+

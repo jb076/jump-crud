@@ -11,7 +11,7 @@ import UserView from './components/UserView';
 function App() {
   return (
     <div className="App">
-      <header>Welcome to Jump Crud</header>
+      <header className="App-header">Welcome to Jump Crud</header>
       <UserView />
     </div>
   );

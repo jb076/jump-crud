@@ -3,13 +3,44 @@ import axios from 'axios';
 import UserEdit from './UserEdit';
 import UserList from './UserList';
 
+import '../css/UserView.css';
+
 
 const baseUri = 'http://localhost:8005/api/systemusers';
 
 function UserView() {
     const [showEdit, setShowEdit] = useState(false);
     const [users, setUsers] = useState([]);
-    
+
+    useEffect(() => {
+        getUsers()
+          .then((result) => {
+            setUsers(result);
+          })
+      }, []);
+      
+    const displayFields = [
+        {'name': 'UserName', 'value': 'username'},
+        {'name': 'Last Name', 'value': 'lastname'},
+        {'name': 'First Name', 'value': 'firstname'},
+        {'name': 'Email', 'value': 'email'},
+    ]
+
+    return (
+      <div className='main-area'>
+            <button onClick={ toggleEdit }>Add A Hooman</button>
+            { showEdit && <UserEdit displayFields= {displayFields} addUserHandler={ addUser } hideHandler={ toggleEdit } /> }
+            <div>
+                <UserList users={ users } displayFields={displayFields} addUserHandler={ addUser } deleteUserHandler={ removeUser }/>
+            </div>
+        </div>
+    )
+
+    /**
+     * Creates or updates a user.  Request method determined by whether or not an id is present on the 
+     * user.  Ids are only present on extant records.
+     * @param {object} userInfo 
+     */
     async function addUser (userInfo) {
         let request;
         if (userInfo.id) {
@@ -19,10 +50,20 @@ function UserView() {
             let uri = baseUri;
             request = axios.post(uri, userInfo);
         }
-        request.then(() => {
-            getUsers().then((results)=>{setUsers(results)})
-        })
         
+        await request;
+        updateUserList();
+    }
+
+    async function getUsers () {
+        const uri = `${baseUri}`
+        const results = await axios.get(uri);
+        return results.data.results
+    }
+
+    async function updateUserList() {
+        const users = await getUsers();
+        setUsers(users);
     }
 
     async function removeUser  (userInfo) {
@@ -32,30 +73,9 @@ function UserView() {
         setUsers(result);
     }
 
-    async function getUsers () {
-        const uri = `${baseUri}`
-        const results = await axios.get(uri);
-        return results.data.results
+    function toggleEdit () {
+        setShowEdit(!showEdit)
     }
-
-    useEffect(() => {
-        getUsers()
-          .then((result) => {
-            setUsers(result);
-          })
-      }, []);
-
-    const toggleEdit = () => {setShowEdit(!showEdit)};
-  
-    return (
-      <div className='user-view'>
-  
-            <button onClick={ toggleEdit }>Add A Hooman</button>
-            { showEdit && <UserEdit addUserHandler={ addUser } hideHandler={ toggleEdit } /> }
-            <UserList users={ users } addUserHandler={ addUser } deleteUserHandler={ removeUser }/>
-  
-        </div>
-    )
 }
 
 
