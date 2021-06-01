@@ -48,6 +48,10 @@ input:focus {
   white-space: pre-wrap;
 }
 
+.messaging {
+  margin-top: 6px; 
+}
+
 .new-user-button {
   height: 45px;
   width: 45px;
@@ -134,6 +138,8 @@ input:focus {
 }
 
 .user-edit .errors {
+  display: flex;
+  justify-content: center;
   text-align: left;
 }
 

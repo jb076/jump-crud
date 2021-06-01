@@ -12,7 +12,8 @@ Some next iteration items I'd like to call out that I think would be obvious win
 5. Improve test coverage.
 6. Focus on render for the edit form.  Save the user a click.
 7. Pagination would likely be necessary/helpful.
-8. More Error Handling.  A modal to report errors, eg on api failures. 
+8. More Error Handling.  A modal to report errors, eg on api failures.
+9. Hide "no users" messaging if edit window is open. 
 
 There's a bit of bloat from using react-create-app.  Not all of it got removed.
 

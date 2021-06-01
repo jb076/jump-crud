@@ -34,7 +34,7 @@ function UserList({ users, displayFields, addUserHandler, deleteUserHandler }) {
                     addUserHandler={ addUserHandler } 
                     deleteUserHandler = { deleteUserHandler } />
             }) 
-            : <span>No users present.  Please Add Some.</span>
+            : <div class="messaging">No users present.  Please Add Some.</div>
         }
       </div>
     )
