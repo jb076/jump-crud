@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import UserList from './UserList';
-import {addUser, getUsers, deleteUser} from '../services/UserService';
-import {isEmail, textExists} from '../services/Validators';
+import { addUser, getUsers, deleteUser } from '../services/UserService';
+import { isEmail, textExists } from '../services/Validators';
 import '../css/UserView.css';
 
 
 function UserView() {
-
     const [users, setUsers] = useState([]);
-
     useEffect(() => {
         getUsers()
           .then((result) => {
@@ -16,12 +14,10 @@ function UserView() {
           })
       }, []);
       
-
     async function addUserAndUpdate (userInfo) {
         await addUser(userInfo);
         updateUserList();
     }
-
 
     async function updateUserList() {
         const users = await getUsers();
@@ -44,11 +40,10 @@ function UserView() {
     return (
       <div className='main-area'>
             <div>
-                <UserList users={ users } displayFields={displayFields} addUserHandler={ addUserAndUpdate } deleteUserHandler={ removeUser }/>
+                <UserList users={ users } displayFields={ displayFields } addUserHandler={ addUserAndUpdate } deleteUserHandler={ removeUser }/>
             </div>
         </div>
     )
 }
-
 
 export default UserView;

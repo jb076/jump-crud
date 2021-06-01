@@ -21,16 +21,15 @@ async function addUser (userInfo) {
     return request;
 }
 
+async function deleteUser  (userInfo) {
+    const uri = `${baseUri}/${userInfo.id}`
+    return axios.delete(uri);
+}
 
 async function getUsers () {
     const uri = `${baseUri}`
     const results = await axios.get(uri);
     return results.data.results
-}
-
-async function deleteUser  (userInfo) {
-    const uri = `${baseUri}/${userInfo.id}`
-    return axios.delete(uri);
 }
 
 export { getUsers, addUser, deleteUser };

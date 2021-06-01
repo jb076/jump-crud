@@ -4,7 +4,6 @@ import '../css/UserView.css';
 
 function UserEdit ({ user, displayFields, addUserHandler, hideHandler }) {
     const [formUser, updateFormUser] = useState({});
-    
     const [formError, setFormError] = useState([]);
     
     useEffect(() => {
@@ -31,8 +30,8 @@ function UserEdit ({ user, displayFields, addUserHandler, hideHandler }) {
         })
 
         if (newErrors.length > 0) {
+            // TODO: Highlight text fields on error.
             setFormError(newErrors);
-            return;
         } else {
             addUserHandler(formUser);
             hideHandler();
@@ -50,11 +49,13 @@ function UserEdit ({ user, displayFields, addUserHandler, hideHandler }) {
                         </div>
                     );
                 })}
+                
                 <div className="edit-button-group">
                     <button onClick={ (e) => {e.preventDefault(); checkAndSubmit(formUser);} }>Submit</button>
                     <button onClick={ (e) => {e.preventDefault(); hideHandler()} }>Cancel</button>
                 </div>
             </form>
+
             {formError.length > 0 
                 && <div className="errors">
                     <ul className="error-list">
